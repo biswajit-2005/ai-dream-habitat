@@ -49,22 +49,25 @@ const FAQ = () => {
     }
   ];
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async() => {
     if (!chatMessage.trim()) return;
     
     setChatHistory(prev => [...prev, { type: "user", message: chatMessage }]);
     
-    // Simulate AI response
-    setTimeout(() => {
-      const responses = [
-        "That's a great question! Based on your project requirements, I'd recommend...",
-        "Let me help you with that. For a project like yours, typically...",
-        "I can definitely assist with that. Here's what I suggest...",
-        "That's an important consideration. In most cases..."
-      ];
-      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-      setChatHistory(prev => [...prev, { type: "bot", message: randomResponse }]);
-    }, 1000);
+    // Call your AI backend
+try {
+  const response = await fetch("http://localhost:5000/api/ask", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ question: chatMessage }),
+  });
+
+  const data = await response.json();
+
+  setChatHistory(prev => [...prev, { type: "bot", message: data.answer }]);
+} catch (error) {
+  setChatHistory(prev => [...prev, { type: "bot", message: "Sorry, something went wrong." }]);
+}
     
     setChatMessage("");
   };
