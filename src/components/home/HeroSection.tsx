@@ -26,8 +26,9 @@ const HeroSection = () => {
                 with AI
               </h1>
               <p className="text-xl text-white/80 max-w-lg">
-                Transform your house design dreams into reality with AI-powered 2D floorplans, 
-                3D visualization, cost estimation, and regulatory compliance checks.
+                Transform your house design dreams into reality with AI-powered
+                2D floorplans, 3D visualization, cost estimation, and regulatory
+                compliance checks.
               </p>
             </div>
 
@@ -38,10 +39,14 @@ const HeroSection = () => {
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+              {/* <Button
+                variant="outline"
+                size="lg"
+                className="border-white/30 text-green hover:bg-white/10"
+              >
                 <Zap className="w-5 h-5 mr-2" />
                 See Demo
-              </Button>
+              </Button> */}
             </div>
 
             <div className="flex items-center space-x-8 text-white/60">
@@ -70,17 +75,27 @@ const HeroSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
             </div>
-            
+
             {/* Floating UI Elements */}
-            <div className="absolute top-4 left-4 glass-card p-3 animate-scale-in" style={{ animationDelay: "0.5s" }}>
-              <div className="text-white text-sm font-medium">AI Processing...</div>
+            <div
+              className="absolute top-4 left-4 glass-card p-3 animate-scale-in"
+              style={{ animationDelay: "0.5s" }}
+            >
+              <div className="text-white text-sm font-medium">
+                AI Processing...
+              </div>
               <div className="w-24 h-2 bg-white/20 rounded-full mt-1">
                 <div className="w-16 h-full bg-white rounded-full"></div>
               </div>
             </div>
-            
-            <div className="absolute bottom-4 right-4 glass-card p-4 animate-scale-in" style={{ animationDelay: "0.8s" }}>
-              <div className="text-white text-sm font-medium mb-1">Estimated Cost</div>
+
+            <div
+              className="absolute bottom-4 right-4 glass-card p-4 animate-scale-in"
+              style={{ animationDelay: "0.8s" }}
+            >
+              <div className="text-white text-sm font-medium mb-1">
+                Estimated Cost
+              </div>
               <div className="text-white text-xl font-bold">$245,000</div>
             </div>
           </div>
